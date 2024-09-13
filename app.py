@@ -17,11 +17,11 @@ components.html(logo_html, height=110)
 page_bg_color = """
 <style>
 body {
-    background-color: #4ea0da;  /* Set your desired color here */
+    background-color: #4ea0da;  
 }
 
 .main {
-    background-color: #4ea0da;  /* Background color for the main content area */
+    background-color: #4ea0da;  
 }
 
 </style>
@@ -36,7 +36,7 @@ carousel_html = """
   position: relative;
   overflow: hidden;
   width: 100%;
-  margin-bottom: -50px; /* Remove margin below carousel */
+  margin-bottom: -50px; 
 }
 
 .carousel-container {
@@ -46,11 +46,11 @@ carousel_html = """
 }
 
 .carousel img {
-  width: calc(100% / 3 - 20px); /* Adjust to fit the container */
+  width: calc(100% / 3 - 20px); 
   height: auto;
   flex-shrink: 0;
-  margin: 0 5px; /* Padding between images */
-  max-height: 400px; /* Adjust as needed */
+  margin: 0 5px; 
+  max-height: 400px; 
 }
 
 .carousel-controls {
@@ -138,7 +138,7 @@ nextButton.addEventListener('click', () => {
 prevButton.addEventListener('click', () => {
   if (index === 0) {
     carouselContainer.style.transition = 'none';
-    index = totalImages; // Reset to end
+    index = totalImages; 
     showImage(index);
     setTimeout(() => {
       carouselContainer.style.transition = 'transform 0.5s ease-in-out'; 
@@ -165,7 +165,7 @@ def recommend(data):
     distance = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda vector: vector[1])
     recommend_course = []
     for i in distance[0:5]:
-        recommend_course.append((courses.iloc[i[0]].Course, courses.iloc[i[0]].Link))  # Store course and link as a tuple
+        recommend_course.append((courses.iloc[i[0]].Course, courses.iloc[i[0]].Link))  
     return recommend_course
 
 if st.button("Show Recommendations"):
