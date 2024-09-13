@@ -6,7 +6,7 @@ courses = pickle.load(open("dataset_list.pkl", 'rb'))
 similarity = pickle.load(open("similarity.pkl", 'rb'))
 
 logo_html = """
-<a href="http://localhost:5173" target="_self">
+<a href="" target="_self">
     <img src="https://cdn.discordapp.com/attachments/1275135058855854243/1284110709856403467/output-onlinepngtools.png?ex=66e570ca&is=66e41f4a&hm=734c6a97b22c57c2d1f584f99754eded6b51dcc7887277487eea6fcc5651c473&" alt="Platform Logo" style="position: absolute; top: 10px; left: 10px; width: 180px; height: auto;">
 </a>
 """
@@ -17,11 +17,11 @@ components.html(logo_html, height=110)
 page_bg_color = """
 <style>
 body {
-    background-color: #4ea0da;  
+    background-color: #37ff77;  
 }
 
 .main {
-    background-color: #4ea0da;  
+    background-color: #37ff77;  
 }
 
 </style>
