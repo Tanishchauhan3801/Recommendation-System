@@ -15,11 +15,11 @@ components.html(logo_html, height=110)
 page_bg_color = """
 <style>
 body {
-    background-color: #99a3a4;  
+    background-color: #aed6f1;  
 }
 
 .main {
-    background-color: #99a3a4;  
+    background-color: #aed6f1;  
 }
 
 </style>
