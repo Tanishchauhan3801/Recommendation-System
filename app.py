@@ -2,11 +2,27 @@ import streamlit as st
 import pickle
 import streamlit.components.v1 as components
 
-# Load datasets
+# Load your data
 courses = pickle.load(open("dataset_list.pkl", 'rb'))
 similarity = pickle.load(open("similarity.pkl", 'rb'))
 
-# Carousel HTML and CSS
+# Set the background color using CSS
+page_bg_color = """
+<style>
+body {
+    background-color: #4ea0da;  /* Set your desired color here */
+}
+
+.main {
+    background-color: #4ea0da;  /* Background color for the main content area */
+}
+
+</style>
+"""
+
+st.markdown(page_bg_color, unsafe_allow_html=True)
+
+# Your existing carousel HTML and JS code
 carousel_html = """
 <style>
 .carousel {
@@ -58,7 +74,6 @@ carousel_html = """
 </div>
 
 <script>
-// Image URLs array
 const images = [
   "https://www.keystonesubic.com/storage/2023/03/web-devlopment.jpg",
   "https://s3.amazonaws.com/mobileappdaily/mad/uploads/mad_blog_5e834bdc69de51585662940.png",
@@ -135,10 +150,8 @@ showImage(index);
 </script>
 """
 
-# Add the carousel to the Streamlit app
 components.html(carousel_html, height=190)
 
-# Courses recommendation section
 st.header("Courses Recommendation")
 
 courses_list = courses['Course'].values
@@ -158,7 +171,6 @@ if st.button("Show Recommendations"):
     
     col1, col2, col3, col4, col5 = st.columns(5)
     
-    # Display recommendations with links
     with col1:
         st.markdown(f"[{course_recommendations[0][0]}]({course_recommendations[0][1]})")
     with col2:
@@ -169,3 +181,4 @@ if st.button("Show Recommendations"):
         st.markdown(f"[{course_recommendations[3][0]}]({course_recommendations[3][1]})")
     with col5:
         st.markdown(f"[{course_recommendations[4][0]}]({course_recommendations[4][1]})")
+
