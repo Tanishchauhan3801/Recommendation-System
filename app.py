@@ -10,11 +10,10 @@ similarity = pickle.load(open("similarity.pkl", 'rb'))
 page_bg_color = """
 <style>
 body {
-    background-color: #4ea0da;  /* Set your desired color here */
-}
+    background-color: #4ea0da;  
 
 .main {
-    background-color: #4ea0da;  /* Background color for the main content area */
+    background-color: #4ea0da;  
 }
 
 </style>
