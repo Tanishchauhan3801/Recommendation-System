@@ -6,14 +6,24 @@ import streamlit.components.v1 as components
 courses = pickle.load(open("dataset_list.pkl", 'rb'))
 similarity = pickle.load(open("similarity.pkl", 'rb'))
 
+logo_html = """
+<a href="http://localhost:5173" target="_self">
+    <img src="https://cdn.discordapp.com/attachments/1275135058855854243/1284110709856403467/output-onlinepngtools.png?ex=66e570ca&is=66e41f4a&hm=734c6a97b22c57c2d1f584f99754eded6b51dcc7887277487eea6fcc5651c473&" alt="Platform Logo" style="position: absolute; top: 10px; left: 10px; width: 180px; height: auto;">
+</a>
+"""
+
+# Render the HTML for the logo at the top left corner
+components.html(logo_html, height=110)
+
 # Set the background color using CSS
 page_bg_color = """
 <style>
 body {
-    background-color: #4ea0da;  
+    background-color: #4ea0da;  /* Set your desired color here */
+}
 
 .main {
-    background-color: #4ea0da;  
+    background-color: #4ea0da;  /* Background color for the main content area */
 }
 
 </style>
@@ -180,4 +190,5 @@ if st.button("Show Recommendations"):
         st.markdown(f"[{course_recommendations[3][0]}]({course_recommendations[3][1]})")
     with col5:
         st.markdown(f"[{course_recommendations[4][0]}]({course_recommendations[4][1]})")
+
 
