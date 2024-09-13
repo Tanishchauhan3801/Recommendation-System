@@ -2,7 +2,6 @@ import streamlit as st
 import pickle
 import streamlit.components.v1 as components
 
-# Load your data
 courses = pickle.load(open("dataset_list.pkl", 'rb'))
 similarity = pickle.load(open("similarity.pkl", 'rb'))
 
@@ -12,10 +11,9 @@ logo_html = """
 </a>
 """
 
-# Render the HTML for the logo at the top left corner
 components.html(logo_html, height=110)
 
-# Set the background color using CSS
+
 page_bg_color = """
 <style>
 body {
@@ -31,7 +29,7 @@ body {
 
 st.markdown(page_bg_color, unsafe_allow_html=True)
 
-# Your existing carousel HTML and JS code
+
 carousel_html = """
 <style>
 .carousel {
@@ -96,12 +94,11 @@ const images = [
   "https://miro.medium.com/v2/resize:fit:1192/1*jXusXvCfxECPU_Jh9S_E3w.jpeg"
 ];
 
-// Get container elements
+
 const carouselContainer = document.querySelector('.carousel-container');
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 
-// Function to create carousel items
 function createCarouselItems() {
   images.forEach((src) => {
     const img = document.createElement('img');
@@ -109,16 +106,14 @@ function createCarouselItems() {
     carouselContainer.appendChild(img);
   });
 
-  // Duplicate the first and last image to enable circular scroll
   carouselContainer.insertAdjacentHTML('afterbegin', carouselContainer.lastElementChild.outerHTML);
   carouselContainer.insertAdjacentHTML('beforeend', carouselContainer.firstElementChild.outerHTML);
 }
 
-// Initialize the carousel items
 createCarouselItems();
 
 const totalImages = images.length;
-let index = 1; // Start at 1 to account for duplicated first image
+let index = 1; 
 
 function showImage(index) {
   const offset = (index - 1) * (100 / (totalImages + 2));
@@ -128,11 +123,11 @@ function showImage(index) {
 
 nextButton.addEventListener('click', () => {
   if (index === totalImages + 1) {
-    carouselContainer.style.transition = 'none'; // Disable transition for instant jump
-    index = 1; // Reset to start
+    carouselContainer.style.transition = 'none'; 
+    index = 1; 
     showImage(index);
     setTimeout(() => {
-      carouselContainer.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+      carouselContainer.style.transition = 'transform 0.5s ease-in-out';
     }, 50);
   } else {
     index++;
@@ -142,19 +137,17 @@ nextButton.addEventListener('click', () => {
 
 prevButton.addEventListener('click', () => {
   if (index === 0) {
-    carouselContainer.style.transition = 'none'; // Disable transition for instant jump
+    carouselContainer.style.transition = 'none';
     index = totalImages; // Reset to end
     showImage(index);
     setTimeout(() => {
-      carouselContainer.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+      carouselContainer.style.transition = 'transform 0.5s ease-in-out'; 
     }, 50);
   } else {
     index--;
     showImage(index);
   }
 });
-
-// Initially show the first image
 showImage(index);
 </script>
 """
